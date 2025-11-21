@@ -1,13 +1,38 @@
 import React from "react";
-import { ButtonProps } from "@/interfaces";
+import { type ButtonProps } from "@/interfaces";
+
+const sizeClasses = {
+  small: "px-3 py-1 text-sm",
+  medium: "px-4 py-2 text-base",
+  large: "px-6 py-3 text-lg",
+};
 
 export default function Button({
   label,
+  children,
+  onClick,
   size = "medium",
   shape = "rounded-md",
-  onClick,
+  className = "",
+  disabled = false,
+  type = "button",
 }: ButtonProps) {
-    return(
-        <button onClick={onClick} className="p-3 rounded-md text-white cursor-pointer">{label}</button>
-    )
+  return (
+    <>
+    <button
+      type={type}
+      disabled={disabled}
+      onClick={onClick}
+      className={`
+        bg-blue-600 text-white 
+        ${sizeClasses[size]} 
+        ${shape}
+        disabled:opacity-50 disabled:cursor-not-allowed
+        ${className}`}
+    >
+      {label ?? children}
+    </button>
+    </>
+    
+  );
 }
