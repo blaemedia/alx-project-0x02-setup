@@ -24,14 +24,17 @@ export interface UserProps{
 
 export interface ButtonProps {
   label?: string;
+  children?: React.ReactNode;
   onClick?: () => void;
+
+  /** Size of the button */
+  size?: "small" | "medium" | "large";
+
+  /** Shape (border-radius) */
+  shape?: "rounded-sm" | "rounded-md" | "rounded-full";
+
+  className?: string;
   disabled?: boolean;
   type?: "button" | "submit" | "reset";
-  className?: string;
-  children?: React.ReactNode;
-
-  // Added to satisfy the test
-  size?: "small" | "medium" | "large";
 }
-
 
