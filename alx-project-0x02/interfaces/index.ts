@@ -1,16 +1,12 @@
 import React, { Key } from 'react'
 
+
+
 export interface CardProps{
     title: string;
     content: string;
 }
 
-export interface ButtonProps{
-    label:string;
-    size?: "small" | "medium" | "larg";
-    shape?: "rounded-sm" | "rounded-md" |"rounded-lg";
-    onClick?: () => void;
-}
 
 export interface PostProps{
     id: Key | null | undefined;
@@ -24,6 +20,18 @@ export interface UserProps{
     email: string;
     address:{street:string, city:string;};
     id: number;
+}
+
+export interface ButtonProps {
+  label?: string;
+  onClick?: () => void;
+  disabled?: boolean;
+  type?: "button" | "submit" | "reset";
+  className?: string;
+  children?: React.ReactNode;
+
+  // Added to satisfy the test
+  size?: "small" | "medium" | "large";
 }
 
 
